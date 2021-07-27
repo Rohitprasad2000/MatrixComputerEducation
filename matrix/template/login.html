@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'extracss/loginstyle.css' %}">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
+
+</head>
+<body>
+    <h2>Matrix Login</h2><br>
+    <div class="login">
+    <form id="login" method="POST" action="login">{% csrf_token %}
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="text" name="username" id="Uname" placeholder="Username">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="password" id="Pass" placeholder="Password">
+        <br><br>
+        <input type="submit" name="log" id="log" value="Log In">
+    </form>
+        <a href="student_register" class="btn btn-warning">New User</a><br><hr>
+</div>
+
+</body>
+</html>
+
+
+

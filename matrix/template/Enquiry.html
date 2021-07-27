@@ -1,0 +1,164 @@
+{% load static %}
+<html lang="en" xmlns:align="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Enquiry</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--=============================== ================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'enquiry/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'extracss/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'extracss/main.css' %}">
+<!--===============================================================================================-->
+</head>
+
+<body>
+
+
+{% if message_name %}
+<center>
+	<h2> Thanks {{ message_name }}</h2>
+	<h2> We will contact you....</h2>
+</center>
+	{% else %}
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" method="POST" action="enquiry">
+				{% csrf_token %}
+
+				  <div class="col-lg-3">
+                  <div class="full">
+                     <div class="logo">
+                        <a href="/"><img src="{% static 'images/logo.png' %}" alt="#" /></a>
+                     </div>
+                  </div>
+               </div>
+				<span class="contact100-form-title">
+					Enquiry Form
+				</span>
+				<div class="wrap-input100 validate-input" data-validate="Name is required ">
+					<label class="label-input100" for="name">Full name</label>
+					<input id="name" class="input100"  name="message_name" type="text" placeholder="Enter your name..." >
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<label class="label-input100" for="email">Email Address</label>
+					<input id="email" class="input100" type="text" name="message_email" placeholder="Enter your email...">
+					<span class="focus-input100"></span>
+				</div>
+
+
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<label class="label-input100" for="email">Contact Number</label>
+					<input id="email" class="input100" type="text"  name="message_contact" placeholder="Enter your contact number...">
+					<span class="focus-input100"></span>
+				</div>
+
+
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<label class="label-input100" for="email">Course</label>
+					<input id="email" class="input100" type="text"  name="message_course" placeholder="Enter your interested course...">
+					<span class="focus-input100"></span>
+				</div>
+
+
+
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Send
+					</button>
+				</div>
+
+				<div class="contact100-form-social flex-c-m">
+					<a href="https://www.facebook.com/" class="contact100-form-social-item flex-c-m bg1 m-r-5">
+						<i class="fa fa-facebook-f" aria-hidden="true"></i>
+					</a>
+
+					<a href="https://www.instagram.com/marvel__spidey/" class="contact100-form-social-item flex-c-m bg2 m-r-5">
+						<i class="fa fa-instagram" aria-hidden="true"></i>
+					</a>
+
+					<a href="https://www.youtube.com/channel/UCpmVpuweDEgpMHUoKRxMgSQ" class="contact100-form-social-item flex-c-m bg3">
+						<i class="fa fa-youtube-play" aria-hidden="true"></i>
+					</a>
+
+
+				</div>
+			</form>
+			<div class="contact100-more flex-col-c-m" style="background-image: url('/static/enquiry/images/bg-01.jpg');">
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'enquiry/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'enquiry/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'enquiry/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'enquiry//bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'enquiry/select2/select2.min.js' %}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+		$(".js-select2").each(function(){
+			$(this).on('select2:open', function (e){
+				$(this).parent().next().addClass('eff-focus-selection');
+			});
+		});
+		$(".js-select2").each(function(){
+			$(this).on('select2:close', function (e){
+				$(this).parent().next().removeClass('eff-focus-selection');
+			});
+		});
+
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'enquiry/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'enquiry/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'enquiry/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/menquiry.js' %}"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="{% static 'https://www.googletagmanager.com/gtag/js?id=UA-23581568-13' %}"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+</body>
+</html>

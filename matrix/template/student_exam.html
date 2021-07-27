@@ -1,0 +1,41 @@
+{% load static%}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+    .h1, h1 {
+    font-size: 1.5rem;
+    bg-color:black;
+}
+  body{
+    background-color:cyan;
+  }
+
+</style>
+    <title>Krishna</title>
+  </head>
+  <body >
+      <div class="container text-center">
+        <img src="{% static 'images/logo.png' %}"  width="500" alt="Responsive image">
+      </div>
+
+    <h1 class=".col-sm-3 my-2 text-center style = color:black;">Staff Registration Form</h1>
+    <hr>
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+                <div class="container"> <a href="{% url 'login_index' %}" class="btn btn-warning">Go to Menu</a>
+           <form  method="post" action="student_exam">
+              {% csrf_token %}
+                  {{form.as_p}}
+               <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
